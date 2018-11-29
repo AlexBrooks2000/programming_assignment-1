@@ -9,4 +9,4 @@ class Book(models.Model):
     ID = models.CharField(max_length=4, default="0000")
 
 def __string__(self):
-    return self.title
+    return self.item
