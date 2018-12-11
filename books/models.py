@@ -6,7 +6,7 @@ class Book(models.Model):
     price = models.CharField(max_length=250, default="price")
     description = models.CharField(max_length=250, default="description")
     image = models.CharField(max_length=250, default="image")
-    ID = models.CharField(max_length=4, default="0000")
+    product_ID = models.CharField(max_length=4, default="0000")
 
 def __string__(self):
     return self.item

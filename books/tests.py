@@ -1,33 +1,29 @@
-from django.test import TestCase
+from django.test import TestCase, SimpleTestCase
+from django.http import HttpRequest
+from djangos.urls import reverse
 from .models import Book
+from . import views
 
 # Create your tests here.
-class TestBasic2(unittest.TestCase):
-    @classmethod
-    def setUpTestData(cls):
-        Book.objects.create(item = "Test item", price = "10", description = "test description", image = "image link", ID="9999")
+class BookListTests(SimpleTestCase):
 
-    def test_Item(self):
-        book = Book.objects.get(id=1)
-        field_label = book._meta.get_field('item').verbose_name
-        self.assertEquals(field_label, 'item')
+    def test_book_list_status_code(self):
+        response = self.client.get('/')
+        self.assertEquals(response.status_code, 200)
 
-    def test_Price(self):
-        book = Book.objects.get(id=1)
-        field_label = book._meta.get_field('price').verbose_name
-        self.assertEquals(field_label, 'price')
+    def test_view_url_by_name(self):
+        response = self.client.get(reverse('book_list'))
+        self.assertEquals(response.status_code, 200)
 
-    def test_Description(self):
-        book = Book.objects.get(id=1)
-        field_label = book._meta.get_field('description').verbose_name
-        self.assertEquals(field_label, "description")
+    def test_view_uses_correct_template(self):
+        response = self.client.get(reverse('book_list'))
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'book_list.html')
 
-    def test_Image(self):
-        book = Book.objects.get(id=1)
-        field_label = book._meta.get_field("image").verbose_name
-        self.assertEquals(field_label, "image")
+    def test_book_list_contains_correct_html(self):
+        response = self.client.get('/')
+        self.assertContains(response, '<h1>All books</h1>')
 
-    def test_ID(self):
-        book = Book.objects.get(id=1)
-        field_label = book._meta.get_field("ID").verbose_name
-        self.assertEquals(field_label, "ID")
+    def test_book_list_does_no-contain_incorrect_html(self):
+        response = self.client.get('/')
+        self.assertNotContains(response, 'I should not be on the page')
