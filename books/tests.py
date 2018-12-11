@@ -27,3 +27,19 @@ class BookListTests(TestCase):
     def test_book_list_does_no_contain_incorrect_html(self):
         response = self.client.get('/')
         self.assertNotContains(response, 'I should not be on the page')
+
+class BookTests(TestCase):
+
+    def setUp(self):
+        Book.objects.create(item="test item", price="100", description="This is a description", image="image link", ID="0000" )
+
+    def test_item_content(self):
+        book = Book.objects.get(id=1)
+        expected_object_name = f'{book.item}'
+        self.assertEquals(expected_object_name, "test item")
+
+    def test_book_list_view():
+        response = self.client.get(reverse('home'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "test item")
+        self.assertTemplateUsed(response, 'books/book_list.html')
