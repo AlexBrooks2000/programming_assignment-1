@@ -1,8 +1,8 @@
 from django.test import TestCase, SimpleTestCase
 from django.http import HttpRequest
 from django.urls import reverse
-from .models import Book
-from . import views
+from books.models import Book
+#from . import views
 
 # Create your tests here.
 class BookListTests(TestCase):
@@ -31,7 +31,7 @@ class BookListTests(TestCase):
 class BookTests(TestCase):
 
     def setUp(self):
-        Book.objects.create(item="test item", price="100", description="This is a description", image="image link", ID="0000" )
+        Book.objects.create(item="test item", price="100", description="This is a description", image="image link", proID="0000" )
 
     def test_item_content(self):
         book = Book.objects.get(id=1)
