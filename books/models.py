@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+#creates a new item
 class Book(models.Model):
     item = models.CharField(max_length=250, default="item")
     price = models.CharField(max_length=250, default="price")
