@@ -21,5 +21,17 @@
         <li>ID: {{ book.product_ID }} </li>
       </ul>
     {% endfor %}
+
+    <h1>All Shoes</h1>
+    {% for Shoe in object_list %}
+      <ul>
+        <li>Item: {{ Shoe.item}} </li>
+        <li>Price: {{ Shoe.price}} </li>
+        <li>Description: {{ Shoe.description }} </li>
+        <li>Image: {{ Shoe.image }} </li>
+        <li>ID: {{Shoe.product_ID}} </li>
+        <li>Shoe Size: {{ Shoe.shoe_size }} </li>
+      </ul>
+    {% endfor %}
   </body>
 </html>
