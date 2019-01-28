@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from books.models import Book, Shoe
+from books.models import Item, Shoe
 
 # Create your views here.
 class BookListView(ListView):
-    model = Book
+    model = Item
     template_name = 'book_list.html'
 
 class ShoeListView(ListView):

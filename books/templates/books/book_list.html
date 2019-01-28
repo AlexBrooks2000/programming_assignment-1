@@ -12,13 +12,14 @@
     <p> you now have the JSON file with link, to use copy and paste web address </p>
 
 
-    {% for Book in object_list %}
+    {% for Item in object_list %}
       <ul>
-        <li>Item: {{ book.item }} </li>
-        <li>price: {{ book.price }} </li>
-        <li>description: {{ book.description }} </li>
-        <li>image: {{ book.image }} </li>
-        <li>ID: {{ book.product_ID }} </li>
+        <li>Item: {{ Item.item }} </li>
+        <li>price: {{ Item.price }} </li>
+        <li>description: {{ Item.description }} </li>
+        <li>image: {{ Item.image }} </li>
+        <li>ID: {{ Item.product_ID }} </li>
+        <li>VAT: {{ Item.VAT(price) }} </li>
       </ul>
     {% endfor %}
 
@@ -31,6 +32,7 @@
         <li>Image: {{ Shoe.image }} </li>
         <li>ID: {{Shoe.product_ID}} </li>
         <li>Shoe Size: {{ Shoe.shoe_size }} </li>
+        <li>VAT: {{ Shoe.VAT(price) }} </li>
       </ul>
     {% endfor %}
   </body>

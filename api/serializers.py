@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from books.models import Book
+from books.models import Item, Shoe
 
 #Creates a new field of text
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Book
-        fields = ('item', 'price', 'description', 'image', 'product_ID')
+        model = Item
+        fields = ('item', 'price', 'description', 'image', 'product_ID', 'VAT')
