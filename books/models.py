@@ -11,13 +11,11 @@ class Book(models.Model):
     description = models.CharField(max_length=250, default="description")
     image = models.CharField(max_length=250, default="image")
     product_ID = models.CharField(max_length=4, default="0000")
-    
+    vat = models.FloatField(editable=False, default=0)
     def save(self, *args, **kwargs):
         vat = self.price * 0.15
         super(Book, self).save(*args, **kwargs)
         return vat
-    vat = models.FloatField(editable=False)
-
 
 class Shoe(Book): #Subclass of Book, example of inheritence
     shoe_size = models.CharField(max_length=2, default="00")
