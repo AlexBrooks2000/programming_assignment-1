@@ -19,7 +19,7 @@
         <li>description: {{ Item.description }} </li>
         <li>image: {{ Item.image }} </li>
         <li>ID: {{ Item.product_ID }} </li>
-        <li>VAT: {{ Item.VAT(price) }} </li>
+        <li>VAT: {{ Item.vat }} </li>
       </ul>
     {% endfor %}
 
@@ -32,7 +32,7 @@
         <li>Image: {{ Shoe.image }} </li>
         <li>ID: {{Shoe.product_ID}} </li>
         <li>Shoe Size: {{ Shoe.shoe_size }} </li>
-        <li>VAT: {{ Shoe.VAT(price) }} </li>
+        <li>VAT: {{ Shoe.vat }} </li>
       </ul>
     {% endfor %}
   </body>

@@ -9,18 +9,25 @@ class Item(models.Model):
     image = models.CharField(max_length=250, default="image")
     product_ID = models.CharField(max_length=4, default="0000")
 
-    def VAT(self): #Function works out VAT of item
-        int_price = int(self.price)
+    def VAT(): #Function works out VAT of item
+        int_price = int(price)
         vat = int_price*0.15
         return vat
+
+    def __init__(self, vat):
+        self.vat = VAT()
 
 class Shoe(Item): #Subclass of Book, example of inheritence
     shoe_size = models.CharField(max_length=2, default="00")
 
-    def VAT(self): #calculates VAT but will give a different answer to book, example of polymorphism
-        int_price = int(self.price)
+    def VAT(): #calculates VAT but will give a different answer to book, example of polymorphism
+        int_price = int(price)
         vat = int_price*0.20
         return vat
+
+    def __init__(self, vat):
+        self.vat = VAT()
+
 
 
 
