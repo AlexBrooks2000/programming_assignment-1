@@ -10,43 +10,34 @@
     <p>   1. Go to https://protected-headland-39978.herokuapp.com/api </p>
     <p>   2. select JSON </p>
     <p> you now have the JSON file with link, to use copy and paste web address </p>
+    <p>To edit file, go to https://protected-headland-39978.herokuapp.com/admin and log in using:</p>
+    <P>Username: Admin</p>
+    <p>Password: College123</p>
 
 
-    {% for Item in object_list %}
+
+    {% for Book in object_list %}
       <ul>
-<<<<<<< HEAD
-        <li>Item: {{ Item.item }} </li>
-        <li>price: {{ Item.price }} </li>
-        <li>description: {{ Item.description }} </li>
-        <li>image: {{ Item.image }} </li>
-        <li>ID: {{ Item.product_ID }} </li>
-        <li>VAT: {{ Item.vat }} </li>
-=======
-        <li>Item: {{ book.item }} </li>
-        <li>price: {{ book.price }} </li>
-        <li>description: {{ book.description }} </li>
-        <li>image: {{ book.image }} </li>
-        <li>ID: {{ book.product_ID }} </li>
-        <li>VAT: {{ book.VAT }} </li>
->>>>>>> 10372e1a2d4dc96893baeb63ebc8c5c0ef62b61d
+        <li>Item: {{ Book.item }} </li>
+        <li>price: {{ Book.price }} </li>
+        <li>description: {{ Book.description }} </li>
+        <li>image: {{ Book.image }} </li>
+        <li>ID: {{ Book.product_ID }} </li>
+        <li>VAT: {{ Book.VAT }} </li>
       </ul>
     {% endfor %}
 
     <h1>All Shoes</h1>
-    {% for Shoe in object_list %}
-      <ul>
-        <li>Item: {{ Shoe.item}} </li>
-        <li>Price: {{ Shoe.price}} </li>
-        <li>Description: {{ Shoe.description }} </li>
-        <li>Image: {{ Shoe.image }} </li>
-        <li>ID: {{Shoe.product_ID}} </li>
-        <li>Shoe Size: {{ Shoe.shoe_size }} </li>
-<<<<<<< HEAD
-        <li>VAT: {{ Shoe.vat }} </li>
-=======
-        <li>VAT: {{ Shoe.VAT }} </li>
->>>>>>> 10372e1a2d4dc96893baeb63ebc8c5c0ef62b61d
-      </ul>
-    {% endfor %}
+      {% for Shoe in object_list %}
+        <ul>
+          <li>Item: {{ Shoe.item}} </li>
+          <li>Price: {{ Shoe.price}} </li>
+          <li>Description: {{ Shoe.description }} </li>
+          <li>Image: {{ Shoe.image }} </li>
+          <li>ID: {{Shoe.product_ID}} </li>
+          <li>Shoe Size: {{ Shoe.shoe_size }} </li>
+          <li>VAT: {{ Shoe.VAT }} </li>
+        </ul>
+      {% endfor %}
   </body>
 </html>
