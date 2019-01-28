@@ -15,7 +15,7 @@
     <p>Password: College123</p>
 
 
-
+<!--Lists items from books-->
     {% for Book in object_list %}
       <ul>
         <li>Item: {{ Book.item }} </li>
@@ -28,6 +28,7 @@
     {% endfor %}
 
     <h1>All Shoes</h1>
+    <!--Lists items from shoes-->
       {% for Shoe in object_list %}
         <ul>
           <li>Item: {{ Shoe.item}} </li>
