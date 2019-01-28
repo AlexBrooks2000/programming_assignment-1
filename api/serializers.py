@@ -5,4 +5,4 @@ from books.models import Book, Shoe
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = ('item', 'price', 'description', 'image', 'product_ID')
+        fields = ('item', 'price', 'description', 'image', 'product_ID', 'vat')
